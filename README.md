@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CRM System
+
+A modern CRM (Customer Relationship Management) system built with Next.js and Tailwind CSS with DaisyUI components.
+
+## Features
+
+- **Dashboard**: Overview of key metrics, recent activities, and sales charts
+- **Customer Management**: Track and manage customer information
+- **Lead Management**: Capture and nurture potential customers
+- **Deal Pipeline**: Monitor sales opportunities through various stages
+- **Settings**: Customize your CRM experience
+- **Responsive Design**: Works on desktop and mobile devices
+- **Modern UI**: Built with Tailwind CSS and DaisyUI components
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) with [DaisyUI](https://daisyui.com/)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **Form Handling**: React Hook Form with Zod validation
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.0 or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd crm-system
+```
+
+2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                  # Next.js app directory
+│   ├── dashboard/       # Dashboard page
+│   ├── customers/       # Customers management
+│   ├── leads/           # Lead management
+│   ├── deals/           # Deal pipeline
+│   └── settings/        # System settings
+├── components/          # Reusable components
+│   ├── dashboard/       # Dashboard-specific components
+│   ├── ui/              # UI components (buttons, cards, etc.)
+│   ├── Header.tsx       # Application header
+│   ├── Layout.tsx       # Main layout wrapper
+│   └── Sidebar.tsx      # Navigation sidebar
+└── lib/                 # Utility functions
+```
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+### Themes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project uses DaisyUI for theming. You can customize the theme in `tailwind.config.ts`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```typescript
+daisyui: {
+  themes: ["light", "dark", "corporate"],
+},
+```
 
-## Deploy on Vercel
+You can switch between themes by changing the `data-theme` attribute in the HTML tag or using the theme selector in the settings page.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new) from the creators of Next.js.
+
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## License
+
+This project is licensed under the MIT License.
