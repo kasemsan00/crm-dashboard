@@ -1,10 +1,17 @@
 "use client";
 
-import { useState } from 'react';
-import { FiPlus, FiSearch, FiFilter, FiEdit2, FiTrash2, FiEye } from 'react-icons/fi';
-import { Button } from '@/components/ui/Button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { formatDate } from '@/lib/utils';
+import { useState } from "react";
+import {
+  FiSearch,
+  FiFilter,
+  FiEdit2,
+  FiTrash2,
+  FiEye,
+} from "react-icons/fi";
+import { Button } from "@/components/ui/Button";
+import { AddCustomerDialog } from "@/components/customers/AddCustomerDialog";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { formatDate } from "@/lib/utils";
 
 type Customer = {
   id: string;
@@ -12,65 +19,65 @@ type Customer = {
   email: string;
   phone: string;
   company: string;
-  status: 'active' | 'inactive' | 'lead';
+  status: "active" | "inactive" | "lead";
   dateAdded: string;
 };
 
 const customers: Customer[] = [
   {
-    id: '1',
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '(555) 123-4567',
-    company: 'ABC Corporation',
-    status: 'active',
-    dateAdded: '2025-04-15T10:30:00',
+    id: "1",
+    name: "John Doe",
+    email: "john.doe@example.com",
+    phone: "(555) 123-4567",
+    company: "ABC Corporation",
+    status: "active",
+    dateAdded: "2025-04-15T10:30:00",
   },
   {
-    id: '2',
-    name: 'Jane Smith',
-    email: 'jane.smith@example.com',
-    phone: '(555) 987-6543',
-    company: 'XYZ Industries',
-    status: 'active',
-    dateAdded: '2025-04-18T14:45:00',
+    id: "2",
+    name: "Jane Smith",
+    email: "jane.smith@example.com",
+    phone: "(555) 987-6543",
+    company: "XYZ Industries",
+    status: "active",
+    dateAdded: "2025-04-18T14:45:00",
   },
   {
-    id: '3',
-    name: 'Robert Johnson',
-    email: 'robert.johnson@example.com',
-    phone: '(555) 456-7890',
-    company: 'Johnson & Co',
-    status: 'inactive',
-    dateAdded: '2025-03-22T09:15:00',
+    id: "3",
+    name: "Robert Johnson",
+    email: "robert.johnson@example.com",
+    phone: "(555) 456-7890",
+    company: "Johnson & Co",
+    status: "inactive",
+    dateAdded: "2025-03-22T09:15:00",
   },
   {
-    id: '4',
-    name: 'Emily Davis',
-    email: 'emily.davis@example.com',
-    phone: '(555) 789-0123',
-    company: 'Davis Enterprises',
-    status: 'lead',
-    dateAdded: '2025-05-10T16:20:00',
+    id: "4",
+    name: "Emily Davis",
+    email: "emily.davis@example.com",
+    phone: "(555) 789-0123",
+    company: "Davis Enterprises",
+    status: "lead",
+    dateAdded: "2025-05-10T16:20:00",
   },
   {
-    id: '5',
-    name: 'Michael Wilson',
-    email: 'michael.wilson@example.com',
-    phone: '(555) 234-5678',
-    company: 'Wilson Group',
-    status: 'active',
-    dateAdded: '2025-05-05T11:10:00',
+    id: "5",
+    name: "Michael Wilson",
+    email: "michael.wilson@example.com",
+    phone: "(555) 234-5678",
+    company: "Wilson Group",
+    status: "active",
+    dateAdded: "2025-05-05T11:10:00",
   },
 ];
 
-function getStatusBadge(status: Customer['status']) {
+function getStatusBadge(status: Customer["status"]) {
   switch (status) {
-    case 'active':
+    case "active":
       return <span className="badge badge-success">Active</span>;
-    case 'inactive':
+    case "inactive":
       return <span className="badge badge-error">Inactive</span>;
-    case 'lead':
+    case "lead":
       return <span className="badge badge-warning">Lead</span>;
     default:
       return null;
@@ -78,12 +85,13 @@ function getStatusBadge(status: Customer['status']) {
 }
 
 export default function CustomersPage() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredCustomers = customers.filter((customer) =>
-    customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    customer.company.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredCustomers = customers.filter(
+    (customer) =>
+      customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      customer.company.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -91,11 +99,11 @@ export default function CustomersPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Customers</h1>
-          <p className="text-base-content/70">Manage your customer relationships</p>
+          <p className="text-base-content/70">
+            Manage your customer relationships
+          </p>
         </div>
-        <Button>
-          <FiPlus className="mr-2 h-4 w-4" /> Add Customer
-        </Button>
+        <AddCustomerDialog />
       </div>
 
       <Card>

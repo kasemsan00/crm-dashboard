@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import daisyui from "daisyui";
 
 export default {
   content: [
@@ -14,7 +15,7 @@ export default {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [daisyui],
   daisyui: {
     themes: [
       {
@@ -28,13 +29,13 @@ export default {
           accent: "#37cdbe",
           "accent-focus": "#2aa79b",
           "accent-content": "#ffffff",
-          neutral: "#3d4451",
-          "neutral-focus": "#2a2e37",
-          "neutral-content": "#ffffff",
+          neutral: "#2d3748",
+          "neutral-focus": "#1a202c",
+          "neutral-content": "#111827",
           "base-100": "#ffffff",
-          "base-200": "#f9fafb",
-          "base-300": "#d1d5db",
-          "base-content": "#000000",
+          "base-200": "#f1f5f9",
+          "base-300": "#e2e8f0",
+          "base-content": "#111827",
           info: "#2094f3",
           success: "#009485",
           warning: "#ff9900",
